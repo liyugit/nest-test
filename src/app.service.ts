@@ -11,6 +11,6 @@ export class AppService {
   async saveData(body: any) {
     const appEntity = new AppEntity();
     AppEntity.merge(appEntity, body);
-    await appEntity.save();
+    return await appEntity.save();
   }
 }

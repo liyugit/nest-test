@@ -13,6 +13,16 @@ export class AppController {
   }
   @Post()
   async create(@Body() body: AppDto) {
-    this.appService.saveData(body);
+    try {
+      const res = await this.appService.saveData(body);
+      return {
+        code: 0,
+        data: {
+          id: res.id,
+        },
+      };
+    } catch (e) {
+      return e;
+    }
   }
 }

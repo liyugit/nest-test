@@ -18,6 +18,11 @@ export class AppEntity extends BaseEntity {
     nullable: false,
   })
   name: string;
+
+  @Column({
+    length: 64,
+  })
+  description: string;
   @CreateDateColumn({ comment: '创建时间' })
   createdAt: string;
 
